@@ -33,6 +33,9 @@ The script requires `plyr` package to be installed.
 #### Running run_analysis.R script
 
 To create the tidy datasets set the working directory of your choice and type the following commands:
+
 `source(run_analysis.R)`
+
 `tidyDataset <- cleanData()`
+
 It will assign dataset described in points 1-4 of the previous section to the variable `tidyDataset` and create the file `Ex5_Dataset.txt` containing the data set from point 5 in your working directory.
