@@ -1,8 +1,8 @@
 ### Introduction
-This project uses data collected from the Samsung Galaxy S smartphone accelerometers and gyroscopes available from [Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). It creates datasets allowing further analysis on human activity recognition (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) based on mean and standard deviation of the measurements collected via accelerometers and gyroscopes.
+This project uses data collected from the Samsung Galaxy S smartphone accelerometers and gyroscopes available from [Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). It prepares data for human activity (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) recognition modeling based on mean and standard deviation of the measurements collected via accelerometers and gyroscopes.
 
 ### Original dataset
-The Human Activity Recognition Using Smartphones Data Set has been partitioned into train and test test containing measurements collected from 70% and 30% of the volunteers respectively.
+The Human Activity Recognition Using Smartphones Data Set has been partitioned into train and test sets containing measurements collected from 70% and 30% of the volunteers respectively.
 
 The data sets are distributed in 6 files:
 
@@ -19,13 +19,13 @@ The run_analysis.R script downloads the original Human Activity Recognition Usin
 4. Appropriately labels the data set with descriptive variable names. 
 5. Prepares a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-The above described functionality is provided via a set of functions:
+The above described functionality is provided via a set of functions (described in the order of their usage):
 
 1. `prepareFiles` - downloads and extracts the data set in the working directory (if needed).
-2. `readMergeData` - reads the features, class labels, and subjects files for train and test data sets; merges the train and test data sets keeping the original files structure (separate files for features, class labels, and subjects).
-3. `extractMeanSdData` - extracts mean and standard deviation measurements.
+2. `readMergeData` - reads the features, class labels, and subjects files for train and test data sets; merges the train and test data sets keeping the original files structure (separate files for features, class labels, and subjects); it returns a 3-elements list - for features, class labels, and subjects data - containing 10299 observations each.
+3. `extractMeanSdData` - extracts mean and standard deviation measurements; it reduces the number of features from 561 to 66.
 4. `nameActivities` - replaces class labels codes with their names.
-5. `bindData` - binds features, class labels, and subjects data together to create 1 dataset;
+5. `bindData` - binds features, class labels, and subjects data together to create 1 dataset containing 10299 observations across 68 variables (33 for mean measurements, 33 for standard deviation measuremens, 1 for activity label, and 1 for subject identifier);
 6. `cleanData()` - the main function combining all the previously described functions to create tidy dataset; it returns the dataset as described in points 1-4; it also creates and saves in the working directory the dataset described in point 5. 
 
 The script requires `plyr` package to be installed.
