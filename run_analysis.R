@@ -2,8 +2,6 @@
 #                                                PREPARING FILES                                             #
 # ========================================================================================================== #
 
-setwd("D:/LEARNING/COURSES/COURSERA_SPECIALIZATIONS/Data Science/Datasets")
-
 prepareFiles <- function() {
   if (!file.exists("getdata-projectfiles-UCI HAR Dataset.zip")) {
     fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -114,7 +112,6 @@ createAveragesDataset <- function(ds) {
 
 cleanData <- function() {
   # preparing files to analysis
-  setwd("D:/LEARNING/COURSES/COURSERA_SPECIALIZATIONS/Data Science/Datasets")
   prepareFiles()
   # creating tidy dataset as described in points 1-4
   mergedData <- readMergeData()
