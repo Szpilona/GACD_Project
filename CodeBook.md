@@ -19,9 +19,9 @@ The run_analysis.R script downloads the original Human Activity Recognition Usin
 4. Appropriately labels the data set with descriptive variable names. 
 5. Prepares a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-The above described functionality is provided via a set of functions (described in the order of their usage):
+The above described functionality is provided via a set of functions (described in the order of their definition and usage):
 
-1. `prepareFiles` - downloads and extracts the data set in the working directory (if needed).
+1. `prepareFiles` - downloads and extracts the Human Activity Recognition Using Smartphones data set in the working directory (if needed).
 2. `readMergeData` - reads the features, class labels, and subjects files for train and test data sets; merges the train and test data sets keeping the original files structure (separate files for features, class labels, and subjects); it returns a 3-elements list - for features, class labels, and subjects data - containing 10299 observations each.
 3. `extractMeanSdData` - extracts mean and standard deviation measurements; it reduces the number of features from 561 to 66.
 4. `nameActivities` - replaces class labels codes with their names.
@@ -29,3 +29,10 @@ The above described functionality is provided via a set of functions (described 
 6. `cleanData()` - the main function combining all the previously described functions to create tidy dataset; it returns the dataset as described in points 1-4; it also creates and saves in the working directory the dataset described in point 5. 
 
 The script requires `plyr` package to be installed.
+
+#### Running run_analysis.R script
+
+To create the tidy datasets set the working directory of your choice and type the following commands:
+`source(run_analysis.R)`
+`tidyDataset <- cleanData()`
+It will assign dataset described in points 1-4 of the previous section to the variable `tidyDataset` and create the file `Ex5_Dataset.txt` containing the data set from point 5 in your working directory.
